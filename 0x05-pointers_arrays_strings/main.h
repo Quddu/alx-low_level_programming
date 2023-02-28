@@ -1,4 +1,4 @@
-int(putchar);
+int(_putchar.c);
 #include <stdio.h>
 #include <unistd.h>
 
