@@ -1,17 +1,35 @@
-#include <stdio.h>
-
-int _atoi(char *);
+#include "main.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * _atoi - converts a string to an integer.
+ * @s: input string.
+ * Return: integer.
  */
-int main(void)
+int _atoi(char *s)
 {
-	int n;
+	unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
 
-	n = _atoi("4");
-	printf("%d\n", n);
-	return (0);
-}}
+	while (*(s + count) != '\0')
+	{
+		if (size > 0 && (*(s + count) < '0' || *(s + count) > '9'))
+			break;
+
+		if (*(s + count) == '-')
+			pn *= -1;
+
+		if ((*(s + count) >= '0') && (*(s + count) <= '9'))
+		{
+			if (size > 0)
+				m *= 10;
+			size++;
+		}
+		count++;
+	}
+
+	for (i = count - size; i < count; i++)
+	{
+		oi = oi + ((*(s + i) - 48) * m);
+		m /= 10;
+	}
+	return (oi * pn);
+}
