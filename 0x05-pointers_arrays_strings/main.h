@@ -1,4 +1,3 @@
-#include <stdout>
 #include <stdio.h>
 #include <unistd.h>
 
