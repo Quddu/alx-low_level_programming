@@ -1,26 +1,21 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * _strncat - a function that concatenates two strings
+ * _strncpy - Entry point
  * @dest: copy to
  * @src: copy from
- * @n: input of max bytes to be used
+ * @n: input number of char
  * Return: Always 0 (Success)
  */
-char *_strncat(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int i, co;
+	int i;
 
-	for (i = 0; dest[i] != '\0'; i++)
-	{
-	}
-
-	for (co = 0; co < n; co++)
-	{
-		dest[i + co] = src[co];
-		if (src[co] == '\0')
-			co = n;
-	}
+	for (i = 0; src[i] != '\0'; i++)
+		if (i < n)
+			dest[i] = src[i];
+		while (i < n)
+			dest[i++] = '\0';
 
 	return (dest);
 }
